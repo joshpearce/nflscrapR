@@ -124,7 +124,7 @@ season_rosters <- function(season, teams,
 #' @param page: 1-digit page number to look into
 #' @param type: A three character string specifying the season type
 buildURL <- function(position, season=2016, page=1, 
-                     type=c('REG', 'POST', 'PRE'))
+                     type=c('reg', 'post', 'pre'))
 {
   type <- match.arg(type)
   
@@ -205,7 +205,7 @@ getGSISID <- . %>%
 #' @description This sub-function, calls buildNameAbbr and getPageNumbers to
 #' scrape player positions by season.
 getPlayers <- function(position, season, 
-                       type=c('REG', 'POST', 'PRE')) {
+                       type=c('reg', 'post', 'pre')) {
   # Give position name
   message(sprintf('Extracting %s', position))
   

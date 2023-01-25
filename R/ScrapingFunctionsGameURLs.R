@@ -24,7 +24,7 @@ extracting_gameids <- function(Season, playoffs = FALSE) {
   if (playoffs == FALSE) {
     # String for the regular season part of the URL
     url.year.sched <- paste("https://www.nfl.com/schedules", Season, 
-                            "REG", sep = "/")
+                            "reg", sep = "/")
     
     # This Runs through the Week of the season and adds it as part of the URL
     url.schedule.weeks <- sapply(1:17, FUN = function(x) {
@@ -53,7 +53,7 @@ extracting_gameids <- function(Season, playoffs = FALSE) {
   
   else {
     url.schedule.playffs <- paste("https://www.nfl.com/schedules", Season, 
-                                  "POST", sep = "/")
+                                  "post", sep = "/")
     
     playoff.gameid.list <- sapply(url.schedule.playffs, 
                                   FUN = function(x) {
