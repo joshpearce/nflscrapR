@@ -80,7 +80,7 @@ scrape_game_ids <- function(season, type = "reg", weeks = NULL, teams = NULL) {
   # Define the pipeline that will be used for type of games to scrape:
   
   fetch_game_ids <- . %>%
-    scrapeR::scrape(url = ., headers = TRUE, parse = FALSE) %>%
+    scrapeR::scrape(url = ., headers = TRUE, parse = FALSE, follow = TRUE) %>%
     unlist() %>%
     stringr::str_extract_all("data-gameid=\"[0-9]{10}\"") %>%
     unlist() %>%
@@ -89,7 +89,7 @@ scrape_game_ids <- function(season, type = "reg", weeks = NULL, teams = NULL) {
   
   # Pipeline to get away team abbreviations:
   fetch_away_team_id <- . %>%
-    scrapeR::scrape(url = ., headers = TRUE, parse = FALSE) %>%
+    scrapeR::scrape(url = ., headers = TRUE, parse = FALSE, follow = TRUE)) %>%
     unlist() %>%
     stringr::str_extract_all("data-away-abbr=\"[:upper:]{2,3}\"") %>%
     unlist() %>%
@@ -98,7 +98,7 @@ scrape_game_ids <- function(season, type = "reg", weeks = NULL, teams = NULL) {
   
   # Home team abbreviations:
   fetch_home_team_id <- . %>%
-    scrapeR::scrape(url = ., headers = TRUE, parse = FALSE) %>%
+    scrapeR::scrape(url = ., headers = TRUE, parse = FALSE, follow = TRUE)) %>%
     unlist() %>%
     stringr::str_extract_all("data-home-abbr=\"[:upper:]{2,3}\"") %>%
     unlist() %>%
@@ -107,7 +107,7 @@ scrape_game_ids <- function(season, type = "reg", weeks = NULL, teams = NULL) {
   
   # Pipeline to fetch state of game:
   fetch_gamestate <- . %>%
-    scrapeR::scrape(url = ., headers = TRUE, parse = FALSE) %>%
+    scrapeR::scrape(url = ., headers = TRUE, parse = FALSE, follow = TRUE)) %>%
     unlist() %>%
     stringr::str_extract_all("data-gamestate=\"[:upper:]{2,4}\"") %>%
     unlist() %>%
