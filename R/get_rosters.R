@@ -79,8 +79,6 @@ get_season_rosters <- function(season, teams, type = "reg",
 #' @param type A three character string specifying the season type: pre, post, or reg
 build_url <- function(position, season, page = 1, type) {
   
-  type <- toupper(type)
-  
   # season, type, page, position
   base_string <- 'https://www.nfl.com/stats/categorystats?tabSeq=1&season=%s&seasonType=%s&d-447263-p=%s&conference=null&statisticPositionCategory=%s'
   return(sprintf(base_string, season, type, page, position))

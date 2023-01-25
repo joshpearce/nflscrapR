@@ -75,7 +75,7 @@ scrape_game_ids <- function(season, type = "reg", weeks = NULL, teams = NULL) {
   
   # Construct base schedule url for the season and type:
   base_url_schedule <- paste("https://www.nfl.com/schedules", season,
-                             toupper(type), sep = "/")
+                             type, sep = "/")
 
   # Define the pipeline that will be used for type of games to scrape:
   
