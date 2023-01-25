@@ -23,7 +23,7 @@ extracting_gameids <- function(Season, playoffs = FALSE) {
   
   if (playoffs == FALSE) {
     # String for the regular season part of the URL
-    url.year.sched <- paste("http://www.nfl.com/schedules", Season, 
+    url.year.sched <- paste("https://www.nfl.com/schedules", Season, 
                             "REG", sep = "/")
     
     # This Runs through the Week of the season and adds it as part of the URL
@@ -52,7 +52,7 @@ extracting_gameids <- function(Season, playoffs = FALSE) {
   }
   
   else {
-    url.schedule.playffs <- paste("http://www.nfl.com/schedules", Season, 
+    url.schedule.playffs <- paste("https://www.nfl.com/schedules", Season, 
                                   "POST", sep = "/")
     
     playoff.gameid.list <- sapply(url.schedule.playffs, 
@@ -104,7 +104,7 @@ extracting_gameids <- function(Season, playoffs = FALSE) {
 proper_jsonurl_formatting <- function(GameID) {
   
   # Paste together the proper location of the JSON data
-  paste("http://www.nfl.com/liveupdate/game-center/", GameID, "/",
+  paste("https://www.nfl.com/liveupdate/game-center/", GameID, "/",
         GameID, "_gtd.json", sep = "")
 }
 

@@ -129,7 +129,7 @@ buildURL <- function(position, season=2016, page=1,
   type <- match.arg(type)
   
   # season, type, page, position
-  baseString <- 'http://www.nfl.com/stats/categorystats?tabSeq=1&season=%s&seasonType=%s&d-447263-p=%s&conference=null&statisticPositionCategory=%s'
+  baseString <- 'https://www.nfl.com/stats/categorystats?tabSeq=1&season=%s&seasonType=%s&d-447263-p=%s&conference=null&statisticPositionCategory=%s'
   sprintf(baseString, 
           season, type, page, position)
   
@@ -193,7 +193,7 @@ findPagePlayerID <- . %>%
 # Do not export
 #' For a player's href, get their GSIS ID from their personal url.
 getGSISID <- . %>%
-  paste("http://www.nfl.com", ., sep = "") %>%
+  paste("https://www.nfl.com", ., sep = "") %>%
   readLines() %>%
   grep("GSIS ID", ., value = TRUE) %>%
   substr(., nchar(.) - 9, nchar(.)) %>%

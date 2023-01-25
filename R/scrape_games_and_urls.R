@@ -74,7 +74,7 @@ scrape_game_ids <- function(season, type = "reg", weeks = NULL, teams = NULL) {
   }
   
   # Construct base schedule url for the season and type:
-  base_url_schedule <- paste("http://www.nfl.com/schedules", season,
+  base_url_schedule <- paste("https://www.nfl.com/schedules", season,
                              toupper(type), sep = "/")
 
   # Define the pipeline that will be used for type of games to scrape:
@@ -223,7 +223,7 @@ create_game_json_url <- function(game_id) {
                           msg = "You entered an invalid game id! JSON urls are supported starting with the 2009 season.")
   
   # Paste together the proper location of the JSON data
-  paste0("http://www.nfl.com/liveupdate/game-center/", game_id, "/",
+  paste0("https://www.nfl.com/liveupdate/game-center/", game_id, "/",
          game_id, "_gtd.json")
 }
 
@@ -252,7 +252,7 @@ create_game_html_url <- function(game_id) {
                           msg = "You entered an invalid game id! Raw HTML urls are supported starting with the 1998 season.")
   
   # Paste together the proper location of the raw HTML play-by-play data
-  paste0("http://www.nfl.com/widget/gc/2011/tabs/cat-post-playbyplay?gameId=", 
+  paste0("https://www.nfl.com/widget/gc/2011/tabs/cat-post-playbyplay?gameId=", 
          game_id, "&enableNGS=false")
 }
 

@@ -82,7 +82,7 @@ build_url <- function(position, season, page = 1, type) {
   type <- toupper(type)
   
   # season, type, page, position
-  base_string <- 'http://www.nfl.com/stats/categorystats?tabSeq=1&season=%s&seasonType=%s&d-447263-p=%s&conference=null&statisticPositionCategory=%s'
+  base_string <- 'https://www.nfl.com/stats/categorystats?tabSeq=1&season=%s&seasonType=%s&d-447263-p=%s&conference=null&statisticPositionCategory=%s'
   return(sprintf(base_string, season, type, page, position))
   
 }
@@ -145,7 +145,7 @@ find_page_player_id <- . %>%
 # DO NOT EXPORT
 #' For a player's href, get their GSIS ID from their personal url.
 get_gsis_id <- . %>%
-  paste("http://www.nfl.com", ., sep = "") %>%
+  paste("https://www.nfl.com", ., sep = "") %>%
   readLines(n = 1000) %>%
   grep("GSIS ID", ., value = TRUE) %>%
   substr(., nchar(.) - 9, nchar(.)) %>%
@@ -154,7 +154,7 @@ get_gsis_id <- . %>%
 # DO NOT EXPORT
 #' For a player's href, get their birthdate from their personal url.
 get_birthdate <- . %>%
-  paste("http://www.nfl.com", ., sep = "") %>%
+  paste("https://www.nfl.com", ., sep = "") %>%
   rvest::html_nodes('#player-bio p') %>%
   rvest::html_text() %>%
   .[grep("Born", .)] %>%
