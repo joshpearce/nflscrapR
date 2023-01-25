@@ -39,7 +39,7 @@ extracting_gameids <- function(Season, playoffs = FALSE) {
                              sourceHTML <- scrapeR::scrape(url = x, 
                                                            headers = TRUE,
                                                            parse = FALSE, 
-                                                           follow = TRUE))
+                                                           follow = TRUE)
                              extract.game.id <- stringr::str_extract_all(
                                unlist(sourceHTML),
                                pattern = "data-gameid=\"[0-9]{10}\"")
@@ -61,7 +61,7 @@ extracting_gameids <- function(Season, playoffs = FALSE) {
                                     sourceHTML <- scrapeR::scrape(url = x, 
                                                                   headers = TRUE,
                                                                   parse = FALSE, 
-                                                                  follow = TRUE))
+                                                                  follow = TRUE)
                                     extract.game.id <- stringr::str_extract_all(
                                       unlist(sourceHTML),
                                       pattern = "data-gameid=\"[0-9]{10}\"")
